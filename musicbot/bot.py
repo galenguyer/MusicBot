@@ -753,6 +753,8 @@ class MusicBot(discord.Client):
 
             with open(dir, 'w', encoding='utf8') as f:
                 f.write(entry.title)
+            with open(f'data/{guild.id}/history.txt', 'a', encoding='utf8') as f:
+                f.write(f'{entry.url} - {entry.title}\n')
 
     @ensure_appinfo
     async def _on_ready_sanity_checks(self):
